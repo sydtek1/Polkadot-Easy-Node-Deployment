@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  polkadot:
+    container_name: polkadot
+    image: parity/polkadot
+    ports:
+      - 30333:30333 # p2p port
+      - 9933:9933 # rpc port
+      - 9944:9944 # ws port
+    command: [
+      "--name", "PolkaDocker",
+      "--ws-external",
+      "--rpc-external",
+      "--rpc-cors", "all"
+    ]
+
+  polkadotui:
+    container_name: polkadotui
+    image: jacogr/polkadot-js-apps
+    environment:
+      - WS_URL=ws://[YOUR_DOCKER_HOST_IP]:9944
+    ports:
+      - 80:80
