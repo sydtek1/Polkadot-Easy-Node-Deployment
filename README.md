@@ -1,4 +1,12 @@
 # Polkadot-Easy-Node-Deployment
+```bash
+docker-compose up 
+```
+
+# Run in dameon mode
+```bash
+docker-compose up -d
+```
 
 
 # Using Docker
